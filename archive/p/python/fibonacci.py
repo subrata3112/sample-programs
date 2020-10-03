@@ -2,23 +2,19 @@ import sys
 
 
 def fibonacci(n):
-    fib = fibs()
-    for i in range(1, n + 1):
-        print(f'{i}: {next(fib)}')
-
-
-def fibs():
     first = 1
     second = 1
-    yield first
-    yield second
-    while True:
-        new = first + second
-        yield new
-        first = second
-        second = new
 
+    print(first, end = ' ')
+    print(second, end = ' ')
 
+    for x in range(n-2):
+        next = first + second
+        print(next, end = ' ')
+        temp = second
+        first = temp
+        second = next
+        
 def main(args):
     try:
         fibonacci(int(args[0]))
